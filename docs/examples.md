@@ -185,3 +185,83 @@ sequenceDiagram
     John->>Bob: How about you?
     Bob-->>John: Jolly good!
 ```
+
+
+## SequenceDiagram: All in ONE_gsc
+
+```
+sequenceDiagram
+%% title
+	title: Test of Eve
+	
+%% sequenceNumbers
+	autonumber
+
+%% backeground highlighting, the colors are define using rgb
+rect rgb(0, 255, 0)
+	par Alice ask Bob
+		Alice ->> Bob: Bob, you have a Test?
+	and Bob answer Alice
+		Bob -->> Alice: Oh, my God, I forgot this Test.
+	and Alice ask John
+		Alice ->> John: And you?
+	and John' answer
+		John -->> Alice: OK!
+	end
+end
+
+	%% Aliases
+	participant T as Tom
+	
+	%% Messages
+	Alice ->> T: wake...
+	Bob ->> T: Tom.
+	John ->> T: breakfast.
+
+%% backeground highlighting, the colors are define using rgba,多了透明的选项
+rect rgb(255, 240, 230, 0.8)
+rect rgb(255, 0, 0, 0.5)
+	%% Loops
+	loop repeated Every minute
+		Alice ->> Bob: Will we doing something?
+		Bob -->> Bob: I don't know!
+	end
+end	
+	%% Note
+	Note right of Bob: Oh, shit.
+	Note left of Alice: God, help me.
+	Note over Alice, Bob: Help, help...
+	Note left of Tom: Rest is importand!
+
+rect rgb(187, 255, 255)
+	%% Alt
+	alt They have tested
+		Alice ->> Bob: no problem!
+		Bob -->> Alice: OK!
+	else They havn't tested
+		Alice ->> Bob: My God!
+		Bob -->> Alice: Help
+	end
+end
+
+	%% This is a comment ... 
+	Tom -->> Alice: ......
+	Tom -->> Bob: ~~~.
+	Tom -->> John: NO, NO, NO, No, NO, NO, No.
+
+rect rgb(255, 246, 143)
+	%% Opt
+	opt John have tested
+		Alice -->> John: Congratulation.
+		Bob -->> John: Congratulation.
+	end
+end
+end
+
+	%% Activations
+	Alice ->> Tom: Hi, Tom, wake up.
+	activate Tom
+	Tom -->> Alice: No, I hava to sleep.
+	deactivate Tom
+	
+```
